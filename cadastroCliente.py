@@ -12,7 +12,7 @@ janelafundo = Tk()
 class Relatorios:
     #Montar relatório
     def rel_geral_cliente(self):
-        self.relatorio = canvas.Canvas('C:/ds_python/cadastroCliente/Relatórios/rel_geral_cliente.pdf')
+        self.relatorio = canvas.Canvas('C:/ds_python/cadastro_cliente/Relatórios/rel_geral_cliente.pdf')
 
         self.codigoRel = self.codigo_entry.get()
         self.nomeRel = self.nome_entry.get()
@@ -68,7 +68,7 @@ class Relatorios:
 
     #Mostar relatório
     def mostrar_rel(self):
-        webbrowser.open('C:/ds_python/cadastroCliente/Relatórios/rel_geral_cliente.pdf')
+        webbrowser.open('C:/ds_python/cadastro_cliente/Relatórios/rel_geral_cliente.pdf')
 
 #Função dos botões
 class FuncoesBotoes:
@@ -212,9 +212,9 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         #self.janelafundo.minsize(width=900, height=700)
 
     def imagemlogo(self):
-        self.logo = PhotoImage(file='Imagens/G (1).png')
-        #self.logo = self.logo.zoom(1,1)
-        Label(self.frame_1, image=self.logo).place(relx=0.40, rely=0.00, relheight=0.3, relwidth=0.2)
+        self.logo = PhotoImage(file='Imagens/LOGO (2).png')
+        self.logo = self.logo.subsample(5, 5)
+        Label(self.frame_1, image=self.logo, bg='#F2E3D5').place(relx=0.40, rely=0.02, relheight=0.3, relwidth=0.2, )
 
     def frames_da_tela(self):
         self.frame_1 = Frame(self.janelafundo, bg='#F2E3D5', highlightthickness=3, highlightbackground='#026773')
