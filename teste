@@ -1,0 +1,18 @@
+    def lista_clientes(self):
+        self.lista_frame2 = ttk.Treeview(self.frame_2, height=3, columns=('col1', 'col2', 'col3,' 'col4', 'col5', 'col6'))
+        self.lista_frame2.heading('#1', text='Código')
+        self.lista_frame2.heading('#2', text='Nome')
+        self.lista_frame2.heading('#3', text='RG')
+        self.lista_frame2.heading('#4', text='E-mail')
+        self.lista_frame2.heading('#5', text='Telefone')
+        self.lista_frame2.heading('#6', text='Endereco')
+
+        self.lista_frame2.column('#0', width=1)
+        self.lista_frame2.column('#1', width=30)
+        self.lista_frame2.column('#2', width=69)
+        self.lista_frame2.column('#3', width=70)
+        self.lista_frame2.column('#4', width=70)
+        self.lista_frame2.column('#5', width=60)
+        self.lista_frame2.column('#6', width=100)
+
+        self.lista_frame2.place(relx=0.01, rely=0.03, relheight=0.94, relwidth=0.94)
