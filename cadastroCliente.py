@@ -205,7 +205,8 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
     def tela(self):
         self.janelafundo.title('Cadastro de Clientes')
         self.janelafundo.configure(background='#012E40')
-        self.janelafundo.geometry('850x680')
+        self.janelafundo.geometry('850x680+240+10')
+        self.janelafundo.iconbitmap(default='Imagens/icon.ico')
         self.janelafundo.resizable(False, False)
         #self.janelafundo.attributes('-fullscreen', True)
         #self.janelafundo.maxsize(width=1000, height=800)
@@ -213,14 +214,14 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
 
     def imagemlogo(self):
         self.logo = PhotoImage(file='Imagens/LOGO (2).png')
-        self.logo = self.logo.subsample(5, 5)
-        Label(self.frame_1, image=self.logo, bg='#F2E3D5').place(relx=0.40, rely=0.02, relheight=0.3, relwidth=0.2, )
+        self.logo = self.logo.subsample(6, 6)
+        Label(self.frame_1, image=self.logo, bg='#faf6f2').place(relx=0.15, rely=0.06, relheight=0.2, relwidth=0.2)
 
     def frames_da_tela(self):
-        self.frame_1 = Frame(self.janelafundo, bg='#F2E3D5', highlightthickness=3, highlightbackground='#026773')
+        self.frame_1 = Frame(self.janelafundo, bg='#faf6f2', highlightthickness=3, highlightbackground='#026773')
         self.frame_1.place(relx=0.02, rely=0.02, relheight=0.46, relwidth=0.96)
 
-        self.frame_2 = Frame(self.janelafundo, bg='#F2E3D5', highlightthickness=3, highlightbackground='#026773')
+        self.frame_2 = Frame(self.janelafundo, bg='#faf6f2', highlightthickness=3, highlightbackground='#026773')
         self.frame_2.place(relx=0.02, rely=0.51, relheight=0.46, relwidth=0.96)
 
     def criar_botoes(self):
@@ -228,70 +229,70 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.bt_limpar = PhotoImage(file='Imagens/Limpar (2).png')
         #self.bt_limpar = self.bt_limpar.subsample(1, 1)
         self.limpar = Button(self.frame_1, image=self.bt_limpar, command=self.limpa_tela, border=0, highlightthickness=0)
-        self.limpar.place(relx=0.17, rely=0.07, relheight=0.1, relwidth=0.11)
+        self.limpar.place(relx=0.36, rely=0.11, relheight=0.1, relwidth=0.11)
 
         #Botão Buscar
         self.bt_buscar = PhotoImage(file='Imagens/Buscar (1).png')
         self.buscar = Button(self.frame_1, image=self.bt_buscar, command=self.buscar_cliente, border=0, highlightthickness=0)
-        self.buscar.place(relx=0.29, rely=0.07, relheight=0.1, relwidth=0.11)
+        self.buscar.place(relx=0.48, rely=0.11, relheight=0.1, relwidth=0.11)
 
         #Botão Novo
         self.bt_novo = PhotoImage(file='Imagens/Novo (1).png')
         self.novo = Button(self.frame_1, image=self.bt_novo, command=self.add_clientes, border=0, highlightthickness=0)
-        self.novo.place(relx=0.6, rely=0.07, relheight=0.1, relwidth=0.11)
+        self.novo.place(relx=0.6, rely=0.11, relheight=0.1, relwidth=0.11)
 
         #Botão Alterar
         self.bt_alterar = PhotoImage(file='Imagens/Alterar (1).png')
         self.alterar = Button(self.frame_1, image=self.bt_alterar, command=self.alterar_cliente, border=0, highlightthickness=0)
-        self.alterar.place(relx=0.72, rely=0.07, relheight=0.1, relwidth=0.11)
+        self.alterar.place(relx=0.72, rely=0.11, relheight=0.1, relwidth=0.11)
 
         #Botão Apagar
         self.bt_apagar = PhotoImage(file='Imagens/Apagar (1).png')
         self.apagar = Button(self.frame_1, image=self.bt_apagar, command=self.deletar_cliente, border=0, highlightthickness=0)
-        self.apagar.place(relx=0.84, rely=0.07, relheight=0.1, relwidth=0.11)
+        self.apagar.place(relx=0.84, rely=0.11, relheight=0.1, relwidth=0.11)
 
     def criando_labels_entrys(self): #Criação da legenda e das caixas de texto
         #Label Código
-        self.lb_codigo = Label(self.frame_1, text='Código', bg='#F2E3D5', fg="black", font=('Verdana', 8, 'bold'))
-        self.lb_codigo.place(relx=0.05, rely=0.20)
+        self.lb_codigo = Label(self.frame_1, text='Código', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_codigo.place(relx=0.05, rely=0.29)
         #Posicionamento label código
         self.codigo_entry = Entry(self.frame_1, fg="blue", font=('Verdana', 9, 'bold'), highlightthickness=1, highlightbackground='#026773')
-        self.codigo_entry.place(relx=0.05, rely=0.27, relheight=0.08, relwidth=0.12)
+        self.codigo_entry.place(relx=0.05, rely=0.35, relheight=0.08, relwidth=0.12)
 
         #Label Nome
-        self.lb_nome = Label(self.frame_1, text='Nome', bg='#F2E3D5', fg="black", font=('Verdana', 9, 'bold'))
-        self.lb_nome.place(relx=0.05, rely=0.37)
+        self.lb_nome = Label(self.frame_1, text='Nome', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_nome.place(relx=0.05, rely=0.45)
         # Posicionamento label nome
         self.nome_entry = Entry(self.frame_1, fg="blue", font=('Verdana', 10), highlightthickness=1, highlightbackground='#026773')
-        self.nome_entry.place(relx=0.05, rely=0.43, relheight=0.08, relwidth=0.44)
+        self.nome_entry.place(relx=0.05, rely=0.51, relheight=0.08, relwidth=0.44)
 
         #Label Rg
-        self.lb_rg = Label(self.frame_1, text='RG', bg='#F2E3D5', fg="black", font=('Verdana', 9, 'bold'))
-        self.lb_rg.place(relx=0.51, rely=0.37)
+        self.lb_rg = Label(self.frame_1, text='RG', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_rg.place(relx=0.51, rely=0.45)
         # Posicionamento label rg
         self.rg_entry = Entry(self.frame_1, fg="blue", font=('Verdana', 10), highlightthickness=1, highlightbackground='#026773')
-        self.rg_entry.place(relx=0.51, rely=0.43, relheight=0.08, relwidth=0.44)
+        self.rg_entry.place(relx=0.51, rely=0.51, relheight=0.08, relwidth=0.44)
 
         #Label Email
-        self.lb_email = Label(self.frame_1, text='E-mail', bg='#F2E3D5', fg="black", font=('Verdana', 9, 'bold'))
-        self.lb_email.place(relx=0.05, rely=0.52)
+        self.lb_email = Label(self.frame_1, text='E-mail', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_email.place(relx=0.05, rely=0.62)
         # Posicionamento label código email
         self.email_entry = Entry(self.frame_1, fg="blue", font=('Verdana', 10), highlightthickness=1, highlightbackground='#026773')
-        self.email_entry.place(relx=0.05, rely=0.58, relheight=0.08, relwidth=0.44)
+        self.email_entry.place(relx=0.05, rely=0.68, relheight=0.08, relwidth=0.44)
 
         #Label Telefone
-        self.lb_telefone = Label(self.frame_1, text='Telefone', bg='#F2E3D5', fg="black", font=('Verdana', 9, 'bold'))
-        self.lb_telefone.place(relx=0.51, rely=0.52)
+        self.lb_telefone = Label(self.frame_1, text='Telefone', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_telefone.place(relx=0.51, rely=0.62)
         # Posicionamento label código telefone
         self.telefone_entry = Entry(self.frame_1, fg="blue", font=('Verdana', 10), highlightthickness=1, highlightbackground='#026773')
-        self.telefone_entry.place(relx=0.51, rely=0.58, relheight=0.08, relwidth=0.44)
+        self.telefone_entry.place(relx=0.51, rely=0.68, relheight=0.08, relwidth=0.44)
 
         #Label Endereço
-        self.lb_endereco = Label(self.frame_1, text='Endereço', bg='#F2E3D5', fg="black", font=('Verdana', 9, 'bold'))
-        self.lb_endereco.place(relx=0.05, rely=0.67)
+        self.lb_endereco = Label(self.frame_1, text='Endereço', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_endereco.place(relx=0.05, rely=0.79)
         # Posicionamento label endereço
         self.endereco_entry = Entry(self.frame_1, fg="blue", font=('Verdana', 10), highlightthickness=1, highlightbackground='#026773')
-        self.endereco_entry.place(relx=0.05, rely=0.74, relheight=0.08, relwidth=0.9)
+        self.endereco_entry.place(relx=0.05, rely=0.85, relheight=0.08, relwidth=0.9)
 
     def lista_clientes(self):
         self.lista_frame2 = ttk.Treeview(self.frame_2, height=3, columns=('col1', 'col2', 'col3', 'col4', 'col5', 'col6'))
