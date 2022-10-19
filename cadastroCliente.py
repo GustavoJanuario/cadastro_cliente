@@ -1,3 +1,4 @@
+import base64
 from tkinter import *
 from tkinter import ttk
 from reportlab.pdfgen import canvas
