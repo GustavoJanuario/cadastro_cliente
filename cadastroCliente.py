@@ -251,7 +251,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
 
     def tela(self):
         self.janelafundo.title('Cadastro de Clientes')
-        self.janelafundo.configure(background='#012E40')
+        self.janelafundo.configure(background='#c9e7f1')
         self.janelafundo.geometry('850x680+240+10')
         self.janelafundo.iconbitmap(default='Imagens/icon.ico')
         self.janelafundo.resizable(False, False)
@@ -261,7 +261,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
 
     def tela2(self):
         self.janelafornecedor = Toplevel()
-        self.janelafornecedor.configure(background='#012E40')
+        self.janelafornecedor.configure(background='#c9e7f1')
         self.janelafornecedor.geometry('850x480+400+10')
         self.janelafornecedor.title('Cadastro de Fornecedores')
         self.janelafornecedor.resizable(False, False)
@@ -270,7 +270,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.janelafornecedor.focus_force()
         self.janelafornecedor.grab_set()
 
-        self.frame_3 = Frame(self.janelafornecedor, bg='#faf6f2', highlightthickness=3, highlightbackground='#026773')
+        self.frame_3 = Frame(self.janelafornecedor, bg='#F0F0F0', highlightthickness=3, highlightbackground='#026773')
         self.frame_3.place(relx=0.03, rely=0.05, relheight=0.90, relwidth=0.94)
 
     def imagemlogo(self):
@@ -279,63 +279,65 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         Label(self.aba1, image=self.logo, bg='#faf6f2').place(relx=0.15, rely=0.06, relheight=0.2, relwidth=0.2)
 
     def frames_da_tela(self):
-        self.frame_1 = Frame(self.janelafundo, bg='#faf6f2', highlightthickness=3, highlightbackground='#026773')
+        self.frame_1 = Frame(self.janelafundo, bg='#F0F0F0', highlightthickness=3, highlightbackground='#026773')
         self.frame_1.place(relx=0.02, rely=0.02, relheight=0.46, relwidth=0.96)
 
-        self.frame_2 = Frame(self.janelafundo, bg='#faf6f2', highlightthickness=3, highlightbackground='#026773')
+        self.frame_2 = Frame(self.janelafundo, bg='#F0F0F0', highlightthickness=3, highlightbackground='#026773')
         self.frame_2.place(relx=0.02, rely=0.51, relheight=0.46, relwidth=0.96)
 
     def abas_frame1(self):
         self.abas = ttk.Notebook(self.frame_1)
 
-        self.aba1 = Frame(self.abas, bg='#faf6f2')
-        self.aba2 = Frame(self.abas, bg='#faf6f2')
+        self.aba1 = Frame(self.abas, bg='#F0F0F0')
+        self.aba2 = Frame(self.abas, bg='#F0F0F0')
 
-        self.abas.add(self.aba1, text='Exemplo 1')
-        self.abas.add(self.aba2, text='Exemplo 2')
+        self.abas.add(self.aba1, text='Cliente')
+        self.abas.add(self.aba2, text='Compras')
 
         self.abas.place(relx=0, rely=0, relheight=0.98, relwidth=0.98)
 
     def criar_botoes(self):
         # Botão Limpar
-        self.bt_limpar = PhotoImage(file='Imagens/Limpar (2).png')
-        self.limpar = Button(self.aba1, image=self.bt_limpar, command=self.limpa_tela, border=0, highlightthickness=0)
-        self.limpar.place(relx=0.36, rely=0.11, relheight=0.1, relwidth=0.11)
+        self.bt_limpar = PhotoImage(file='Imagens/limpar.png')
+        self.bt_limpar = self.bt_limpar.subsample(2,2)
+        self.limpar = Button(self.aba1, image=self.bt_limpar, command=self.limpa_tela, border=0, highlightthickness=0, bg='#F0F0F0')
+        self.limpar.place(relx=0.5, rely=0.11, relheight=0.14, relwidth=0.06)
         texto_balao_limpar = 'Limpar todos os campos de texto'
         self.balao_limpar = tix.Balloon(self.aba1)
         self.balao_limpar.bind_widget(self.limpar, balloonmsg=texto_balao_limpar)
 
         # Botão Buscar
-        self.bt_buscar = PhotoImage(file='Imagens/Buscar (1).png')
-        self.buscar = Button(self.aba1, image=self.bt_buscar, command=self.buscar_cliente, border=0,
-                             highlightthickness=0)
-        self.buscar.place(relx=0.48, rely=0.11, relheight=0.1, relwidth=0.11)
+        self.bt_buscar = PhotoImage(file='Imagens/busca.png')
+        self.bt_buscar = self.bt_buscar.subsample(2, 2)
+        self.buscar = Button(self.aba1, image=self.bt_buscar, command=self.buscar_cliente, border=0, highlightthickness=0, bg='#F0F0F0')
+        self.buscar.place(relx=0.58, rely=0.11, relheight=0.14, relwidth=0.06)
         texto_balao_buscar = 'Buscar no campo nome o cliente que deseja buscar'
         self.balao_buscar = tix.Balloon(self.aba1)
         self.balao_buscar.bind_widget(self.buscar, balloonmsg=texto_balao_buscar)
 
         # Botão Novo
-        self.bt_novo = PhotoImage(file='Imagens/Novo (1).png')
-        self.novo = Button(self.aba1, image=self.bt_novo, command=self.add_clientes, border=0, highlightthickness=0)
-        self.novo.place(relx=0.6, rely=0.11, relheight=0.1, relwidth=0.11)
+        self.bt_novo = PhotoImage(file='Imagens/novo.png')
+        self.bt_novo = self.bt_novo.subsample(2, 2)
+        self.novo = Button(self.aba1, image=self.bt_novo, command=self.add_clientes, border=0, highlightthickness=0, bg='#F0F0F0')
+        self.novo.place(relx=0.66, rely=0.11, relheight=0.14, relwidth=0.06)
         texto_balao_novo = 'Adicionar novo cliente'
         self.balao_novo = tix.Balloon(self.aba1)
         self.balao_novo.bind_widget(self.novo, balloonmsg=texto_balao_novo)
 
         # Botão Alterar
-        self.bt_alterar = PhotoImage(file='Imagens/Alterar (1).png')
-        self.alterar = Button(self.aba1, image=self.bt_alterar, command=self.alterar_cliente, border=0,
-                              highlightthickness=0)
-        self.alterar.place(relx=0.72, rely=0.11, relheight=0.1, relwidth=0.11)
+        self.bt_alterar = PhotoImage(file='Imagens/alterar.png')
+        self.bt_alterar = self.bt_alterar.subsample(2, 2)
+        self.alterar = Button(self.aba1, image=self.bt_alterar, command=self.alterar_cliente, border=0, highlightthickness=0, bg='#F0F0F0')
+        self.alterar.place(relx=0.74, rely=0.11, relheight=0.14, relwidth=0.06)
         texto_balao_alterar = 'Alterar cadastro do cliente selecionado'
         self.balao_alterar = tix.Balloon(self.aba1)
         self.balao_alterar.bind_widget(self.alterar, balloonmsg=texto_balao_alterar)
 
         # Botão Apagar
-        self.bt_apagar = PhotoImage(file='Imagens/Apagar (1).png')
-        self.apagar = Button(self.aba1, image=self.bt_apagar, command=self.deletar_cliente, border=0,
-                             highlightthickness=0)
-        self.apagar.place(relx=0.84, rely=0.11, relheight=0.1, relwidth=0.11)
+        self.bt_apagar = PhotoImage(file='Imagens/apagar.png')
+        self.bt_apagar = self.bt_apagar.subsample(2, 2)
+        self.apagar = Button(self.aba1, image=self.bt_apagar, command=self.deletar_cliente, border=0, highlightthickness=0, bg='#F0F0F0')
+        self.apagar.place(relx=0.82, rely=0.11, relheight=0.14, relwidth=0.06)
         texto_balao_apagar = 'Apagar cadastro do cliente selecionado'
         self.balao_apagar = tix.Balloon(self.aba1)
         self.balao_apagar.bind_widget(self.apagar, balloonmsg=texto_balao_apagar)
@@ -343,16 +345,15 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         # Botão Estoque
         self.bt_estoque = PhotoImage(file='Imagens/caixa.png')
         self.bt_estoque = self.bt_estoque.subsample(14, 14)
-        self.estoque = Button(self.aba1, image=self.bt_estoque, command=self.tela2, bg='#faf6f2', border=0,
-                              highlightthickness=0)
-        self.estoque.place(relx=0.9, rely=0.25, relheight=0.15, relwidth=0.05)
+        self.estoque = Button(self.aba1, image=self.bt_estoque, command=self.tela2, border=0, highlightthickness=0, bg='#F0F0F0')
+        self.estoque.place(relx=0.9, rely=0.11, relheight=0.14, relwidth=0.06)
         texto_balao_estoque = 'Ir para tela de estoque'
         self.balao_estoque = tix.Balloon(self.aba1)
         self.balao_estoque.bind_widget(self.estoque, balloonmsg=texto_balao_estoque)
 
     def criando_labels_entrys(self):  # Criação da legenda e as caixas de texto
         # Label Código
-        self.lb_codigo = Label(self.aba1, text='Código', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_codigo = Label(self.aba1, text='Código', bg='#F0F0F0', fg="black", font=('Verdana', 9, 'bold'))
         self.lb_codigo.place(relx=0.05, rely=0.29)
         # Posicionamento label código
         self.codigo_entry = Entry(self.aba1, fg="blue", font=('Verdana', 9, 'bold'), highlightthickness=1,
@@ -360,7 +361,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.codigo_entry.place(relx=0.05, rely=0.35, relheight=0.08, relwidth=0.12)
 
         # Label Nome
-        self.lb_nome = Label(self.aba1, text='Nome', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_nome = Label(self.aba1, text='Nome', bg='#F0F0F0', fg="black", font=('Verdana', 9, 'bold'))
         self.lb_nome.place(relx=0.05, rely=0.45)
         # Posicionamento label nome
         self.nome_entry = Entry(self.aba1, fg="blue", font=('Verdana', 10), highlightthickness=1,
@@ -368,7 +369,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.nome_entry.place(relx=0.05, rely=0.51, relheight=0.08, relwidth=0.44)
 
         # Label Rg
-        self.lb_rg = Label(self.aba1, text='RG', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_rg = Label(self.aba1, text='RG', bg='#F0F0F0', fg="black", font=('Verdana', 9, 'bold'))
         self.lb_rg.place(relx=0.51, rely=0.45)
         # Posicionamento label rg
         self.rg_entry = Entry(self.aba1, fg="blue", font=('Verdana', 10), highlightthickness=1,
@@ -376,7 +377,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.rg_entry.place(relx=0.51, rely=0.51, relheight=0.08, relwidth=0.44)
 
         # Label Email
-        self.lb_email = Label(self.aba1, text='E-mail', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_email = Label(self.aba1, text='E-mail', bg='#F0F0F0', fg="black", font=('Verdana', 9, 'bold'))
         self.lb_email.place(relx=0.05, rely=0.62)
         # Posicionamento label código email
         self.email_entry = Entry(self.aba1, fg="blue", font=('Verdana', 10), highlightthickness=1,
@@ -384,7 +385,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.email_entry.place(relx=0.05, rely=0.68, relheight=0.08, relwidth=0.44)
 
         # Label Telefone
-        self.lb_telefone = Label(self.aba1, text='Telefone', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_telefone = Label(self.aba1, text='Telefone', bg='#F0F0F0', fg="black", font=('Verdana', 9, 'bold'))
         self.lb_telefone.place(relx=0.51, rely=0.62)
         # Posicionamento label código telefone
         self.telefone_entry = Entry(self.aba1, fg="blue", font=('Verdana', 10), highlightthickness=1,
@@ -392,7 +393,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.telefone_entry.place(relx=0.51, rely=0.68, relheight=0.08, relwidth=0.44)
 
         # Label Endereço
-        self.lb_endereco = Label(self.aba1, text='Endereço', bg='#faf6f2', fg="black", font=('Verdana', 9, 'bold'))
+        self.lb_endereco = Label(self.aba1, text='Endereço', bg='#F0F0F0', fg="black", font=('Verdana', 9, 'bold'))
         self.lb_endereco.place(relx=0.05, rely=0.79)
         # Posicionamento label endereço
         self.endereco_entry = Entry(self.aba1, fg="blue", font=('Verdana', 10), highlightthickness=1,
