@@ -8,7 +8,7 @@ def verifica_usuario():
 
     if usuario == 'admin' and senha == '123456':
         lbl_verifica = Label(janela_principal, text='Bem vindo!')
-        lbl_verifica.grid(row=4, column=1)
+        lbl_verifica.place(relx=0.3, rely=0.88, relheight=0.1, relwidth=0.4)
         limpa_tela()
     else:
         lbl_verifica = Label(janela_principal, text='Usuário ou senha incorretos!')
@@ -40,7 +40,7 @@ lbl_usuario = Label(janela_principal, text='Usuário', font=('Verdana', 10, 'bol
 caixa_usuario = Entry(janela_principal, font=('Verdana', 9))
 lbl_senha = Label(janela_principal, text='Senha', font=('Verdana', 10, 'bold'), background='#026773')
 caixa_senha = Entry(janela_principal, show='*', font=('Verdana', 9))
-btn_entrar = Button(janela_principal, text='Entrar', command=verifica_usuario, font=('Verdana', 9))
+btn_entrar = Button(janela_principal, text='ENTRAR', command=verifica_usuario, font=('Verdana', 10))
 lbl_verifica = Label(janela_principal, text='')
 
 
