@@ -6,3 +6,6 @@ clientes.bd
 Relatórios/rel_geral_cliente.pdf
 Relatórios/rel_geral_cliente.pdf
 clientes.bd
+*.bd
+*.pdf
+*.pdf

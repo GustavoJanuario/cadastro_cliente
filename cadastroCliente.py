@@ -342,6 +342,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
 
         # Botão Estoque
         self.bt_estoque = PhotoImage(file='Imagens/caixa.png')
+        self.bt_estoque = self.bt_estoque.subsample(14, 14)
         self.estoque = Button(self.aba1, image=self.bt_estoque, command=self.tela2, bg='#faf6f2', border=0,
                               highlightthickness=0)
         self.estoque.place(relx=0.9, rely=0.25, relheight=0.15, relwidth=0.05)
