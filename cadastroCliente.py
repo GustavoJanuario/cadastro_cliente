@@ -8,7 +8,7 @@ import subsample
 import webbrowser
 import sqlite3
 
-janelafundo = Tk()
+janelafundo = tix.Tk()
 
 
 # Gerar relatórios
@@ -239,6 +239,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.janelafundo = janelafundo
         self.tela()
         self.frames_da_tela()
+        self.abas_frame1()
         self.criar_botoes()
         self.criando_labels_entrys()
         self.lista_clientes()
@@ -275,7 +276,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
     def imagemlogo(self):
         self.logo = PhotoImage(file='Imagens/LOGO (2).png')
         self.logo = self.logo.subsample(6, 6)
-        Label(self.frame_1, image=self.logo, bg='#faf6f2').place(relx=0.15, rely=0.06, relheight=0.2, relwidth=0.2)
+        Label(self.aba1, image=self.logo, bg='#faf6f2').place(relx=0.15, rely=0.06, relheight=0.2, relwidth=0.2)
 
     def frames_da_tela(self):
         self.frame_1 = Frame(self.janelafundo, bg='#faf6f2', highlightthickness=3, highlightbackground='#026773')
@@ -297,7 +298,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
 
     def criar_botoes(self):
         # Botão Limpar
-        self.bt_limpar = PhotoImage(data=base64.b64decode(self.bt_limpar64))
+        self.bt_limpar = PhotoImage(file='Imagens/Limpar (2).png')
         self.limpar = Button(self.aba1, image=self.bt_limpar, command=self.limpa_tela, border=0, highlightthickness=0)
         self.limpar.place(relx=0.36, rely=0.11, relheight=0.1, relwidth=0.11)
         texto_balao_limpar = 'Limpar todos os campos de texto'
@@ -305,7 +306,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.balao_limpar.bind_widget(self.limpar, balloonmsg=texto_balao_limpar)
 
         # Botão Buscar
-        self.bt_buscar = PhotoImage(data=base64.b64decode(self.bt_buscar64))
+        self.bt_buscar = PhotoImage(file='Imagens/Buscar (1).png')
         self.buscar = Button(self.aba1, image=self.bt_buscar, command=self.buscar_cliente, border=0,
                              highlightthickness=0)
         self.buscar.place(relx=0.48, rely=0.11, relheight=0.1, relwidth=0.11)
@@ -314,7 +315,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.balao_buscar.bind_widget(self.buscar, balloonmsg=texto_balao_buscar)
 
         # Botão Novo
-        self.bt_novo = PhotoImage(data=base64.b64decode(self.bt_novo64))
+        self.bt_novo = PhotoImage(file='Imagens/Novo (1).png')
         self.novo = Button(self.aba1, image=self.bt_novo, command=self.add_clientes, border=0, highlightthickness=0)
         self.novo.place(relx=0.6, rely=0.11, relheight=0.1, relwidth=0.11)
         texto_balao_novo = 'Adicionar novo cliente'
@@ -322,7 +323,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.balao_novo.bind_widget(self.novo, balloonmsg=texto_balao_novo)
 
         # Botão Alterar
-        self.bt_alterar = PhotoImage(data=base64.b64decode(self.bt_alterar64))
+        self.bt_alterar = PhotoImage(file='Imagens/Alterar (1).png')
         self.alterar = Button(self.aba1, image=self.bt_alterar, command=self.alterar_cliente, border=0,
                               highlightthickness=0)
         self.alterar.place(relx=0.72, rely=0.11, relheight=0.1, relwidth=0.11)
@@ -331,7 +332,7 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.balao_alterar.bind_widget(self.alterar, balloonmsg=texto_balao_alterar)
 
         # Botão Apagar
-        self.bt_apagar = PhotoImage(data=base64.b64decode(self.bt_apagar64))
+        self.bt_apagar = PhotoImage(file='Imagens/Apagar (1).png')
         self.apagar = Button(self.aba1, image=self.bt_apagar, command=self.deletar_cliente, border=0,
                              highlightthickness=0)
         self.apagar.place(relx=0.84, rely=0.11, relheight=0.1, relwidth=0.11)
@@ -339,31 +340,8 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
         self.balao_apagar = tix.Balloon(self.aba1)
         self.balao_apagar.bind_widget(self.apagar, balloonmsg=texto_balao_apagar)
 
-        # Botão Buscar
-        self.bt_buscar = PhotoImage(file='Imagens/Buscar (1).png')
-        self.buscar = Button(self.frame_1, image=self.bt_buscar, command=self.buscar_cliente, border=0,
-                             highlightthickness=0)
-        self.buscar.place(relx=0.48, rely=0.11, relheight=0.1, relwidth=0.11)
-
-        # Botão Novo
-        self.bt_novo = PhotoImage(file='Imagens/Novo (1).png')
-        self.novo = Button(self.frame_1, image=self.bt_novo, command=self.add_clientes, border=0, highlightthickness=0)
-        self.novo.place(relx=0.6, rely=0.11, relheight=0.1, relwidth=0.11)
-
-        # Botão Alterar
-        self.bt_alterar = PhotoImage(file='Imagens/Alterar (1).png')
-        self.alterar = Button(self.frame_1, image=self.bt_alterar, command=self.alterar_cliente, border=0,
-                              highlightthickness=0)
-        self.alterar.place(relx=0.72, rely=0.11, relheight=0.1, relwidth=0.11)
-
-        # Botão Apagar
-        self.bt_apagar = PhotoImage(file='Imagens/Apagar (1).png')
-        self.apagar = Button(self.frame_1, image=self.bt_apagar, command=self.deletar_cliente, border=0,
-                             highlightthickness=0)
-        self.apagar.place(relx=0.84, rely=0.11, relheight=0.1, relwidth=0.11)
-
         # Botão Estoque
-        self.bt_estoque = PhotoImage(data=base64.b64decode(self.bt_estoque64))
+        self.bt_estoque = PhotoImage(file='Imagens/caixa.png')
         self.estoque = Button(self.aba1, image=self.bt_estoque, command=self.tela2, bg='#faf6f2', border=0,
                               highlightthickness=0)
         self.estoque.place(relx=0.9, rely=0.25, relheight=0.15, relwidth=0.05)
