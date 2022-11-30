@@ -275,8 +275,8 @@ class TelaPrincipal(FuncoesBotoes, Relatorios):
 
     def imagemlogo(self):
         self.logo = PhotoImage(file='Imagens/LOGO (2).png')
-        self.logo = self.logo.subsample(6, 6)
-        Label(self.aba1, image=self.logo, bg='#faf6f2').place(relx=0.15, rely=0.06, relheight=0.2, relwidth=0.2)
+        self.logo = self.logo.subsample(7, 7)
+        Label(self.aba1, image=self.logo, bg='#F0F0F0').place(relx=0.30, rely=0.08)
 
     def frames_da_tela(self):
         self.frame_1 = Frame(self.janelafundo, bg='#F0F0F0', highlightthickness=3, highlightbackground='#026773')
